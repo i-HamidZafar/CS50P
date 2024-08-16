@@ -111,6 +111,112 @@ Float:
   n = input("Enter number of digits you want to rround to : ")
   div  = x / y
   print(f"Div : {div:.{n}f}")
+
+Functions:
+  ------------// hello ()
+  def hello():
+    print("Hello,")
+  
+  name = input("What is your name? ")
+  hello()
+  print(name)
+  
+  ----------// hello (to)
+  def hello(to):
+    print(f"Hello, {to}")
+
+
+  name = input("What is your name? ")
+  hello(name) 
+
+  ----------// hello (to) default value for parameter /// won't run 
+  hello() 
+  name = input("What is your name? ")
+  hello(name) 
+
+
+  def hello(to = "World"):
+    print(f"Hello, {to}")
+
+  ---------//using main function
+
+  def main():    
+    name = input("What is your name? ")
+    hello(name) 
+
+  def hello(to = "world"):
+      print(f"Hello, {to}")
+  
+  main()
+
+
+  --------// scope (doesn't run)
+  def main():   
+    name = input("What is your name? ")
+    hello() 
+
+  def hello():
+      print("Hello,", name)
+  
+  main()
+
+  ---------//final hello.py
+
+  def main():    
+    name = input("What is your name? ")
+    hello(name) 
+
+  def hello(to = "world"):
+      print(f"Hello, {to}")
+  
+  main()
+
+
+  ---------//calculator.py (simple square)
+  def main():
+    x = int(input("what's x?"))
+    print("x squared is:", square(x))
+  
+  def square(n):
+      return n * n
+  
+  main()
+
+  ---------//calculator.py (square by raising to the power 2)
+  def main():
+    x = int(input("what's x?"))
+    print("x squared is:", square(x))
+  
+  def square(n):
+      return n ** 2
+  
+  main()
+
+  ---------//calculator.py (using pow())
+  def main():
+    x = int(input("what's x?"))
+    print("x squared is:", square(x))
+  
+  def square(n):
+      return pow(n, 2)
+  
+  main()
+
+  ---------//Calculator.py
+  def main():
+    x = int(input("what's x? "))
+    pw= int(input("power? "))
+    print("x squared is:", square(x))
+    print(f"x ^ {pw} is: {pw_fun(x,pw)}")
+
+  def square(n):
+      return n ** 2
+  
+  def pw_fun(x,n):
+      return x ** n
+  
+  main()
+  
   
 
-
+  
