@@ -21,3 +21,14 @@ coke.py
                   change -= amount
   
   print("Change Owed:", change)
+
+twttr.py
+  ----------------
+  user_input = input("Input: ").strip()
+  res =""
+  vowels =["a","e" ,"i" ,"o" ,"u", "A" ,"E" ,"I" ,"O", "U"]
+  for i in range(len(user_input)):
+      if user_input[i] not in vowels:
+              res += user_input[i]
+  print("Output:", res)
+
