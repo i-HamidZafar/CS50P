@@ -104,3 +104,144 @@ cat.py
       for _ in range(times):
           print("Meow")
   main()
+
+hogwarts.py
+  ------------- lists
+  students = ["Harmione", "Harry", "Ron"]
+
+  #indexing into the list  
+
+  print(students[0])
+  print(students[1])
+  print(students[2])
+
+  ------------- itterating through list using loops
+  students = ["Harmione", "Harry", "Ron"]
+
+  for student in students:
+    print(student)
+  ------------- using len() for indexing through the list
+
+  students = ["Harmione", "Harry", "Ron"]
+
+  for idx in range(len(students)):
+      print(students[idx])
+
+  ------------- ranking
+
+  students = ["Harmione", "Harry", "Ron"]
+
+  for idx in range(len(students)):
+      print(idx + 1,students[idx])
+
+  ------------- Dict
+
+  student = {"Hermione": "Gryffindor",
+           "Harry": "Gryffindor",
+           "Ron": "Gryffindor",
+           "Draco": "Gryffindor",
+           }
+
+  print(student["Ron"])
+  print(student["Harry"])
+  print(student["Hermione"])
+
+  ------------- Looping through dict [keys]
+
+  students = {"Hermione": "Gryffindor",
+           "Harry": "Gryffindor",
+           "Ron": "Gryffindor",
+           "Draco" : "Slytherin",
+  }
+  
+  for student in students:
+      print(student)
+
+  ------------- Dict key values
+
+  students = {"Hermione": "Gryffindor",
+           "Harry": "Gryffindor",
+           "Ron": "Gryffindor",
+           "Draco" : "Slytherin",
+  }
+  
+  for  student in students:
+      print(student, students[student], sep = ", ")
+
+  ------------- list of Dict
+
+  students = [
+    {"name": "Hermione", "house" : "Gryffindor", "patronous" : "Otter"},
+    {"name": "Hermione", "house" : "Gryffindor", "patronous" : "Stag"},
+    {"name": "Hermione", "house" : "Gryffindor", "patronous" : "Jack Russell terrier"},
+    {"name": "Draco", "house" : "Slytherin", "patronous" : None},
+  ]
+  
+  for student in students:
+      print(student["name"], student["house"], student["patronous"],  sep= ", ")
+
+mario.py
+  ------------- without loop
+  print("#")
+  print("#")
+  print("#")
+
+  ------------- loop
+  for _ in range(3)
+    print("#"
+
+  ------------- using function
+  def main():
+    print_column(3)
+  def print_column(height):
+      for _ in range(height):
+          print("#")
+  main()
+
+  ------------- using function changing the implementation
+  def main():
+    print_column(3)
+  def print_column(height):
+          print("#\n" * height, end ="")
+  main()
+
+  ------------- horizontal question marks
+  def main():
+    print_row(4)
+
+  def print_row(width):
+      print("?" * width)
+  
+  main()
+
+  ------------ printing mario squares without nested loops
+  def main():
+    print_square(3)
+
+  def print_square(size):
+      for _ in range(size):
+          print("#" * size)
+  main()
+
+  ------------ 
+  def main():
+    print_square(3)
+
+  def print_square(size):
+      for _ in range(size):
+          print_row(size)
+  def print_row(width):
+    print("#" * width)
+  main()
+
+
+  ------------ printing mario squares with nested loops
+  def main():
+    print_square(3)
+
+  def print_square(size):
+      for row in range(size):
+          for col in range(size):
+              print("#", end="")
+          print()
+  main()
