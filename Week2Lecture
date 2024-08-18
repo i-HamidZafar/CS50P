@@ -1,1 +1,106 @@
+LOOPS
 
+cat.py
+  ------------- Without Loop
+  print("Meow")
+  print("Meow")
+  print("Meow")
+
+  ------------- while loop
+  i = 3
+  while i != 0:
+      print("Meow")
+      i = i - 1 
+  ------------- 
+  i = 1 
+  while i <= 3:
+      print("Meow")
+      i = i + 1
+  ------------- 
+  i = 0
+  while i < 3:
+      print("Meow")
+      i += 1
+
+  ------------- for loop [poorly]
+  for i in [0, 1, 2]:
+    print("Meow")
+
+  ------------- for loop using range instead of list of values
+  for i in [0, 1, 2]:
+    print("Meow")
+
+  ------------- when you don't care about the name of the variable
+  for _ in [0, 1, 2]:
+    print("Meow")
+
+  ------------- pythonic but not a good thing to do due to readability 
+  print("Meow\n" * 3)
+
+
+  ------------- input validation
+  while True:
+    cnt = int(input("what's n? "))
+    if cnt < 0:
+        continue
+    else:
+        break
+  
+  for i in range(cnt):
+      print("Meow")
+
+  ------------- input validation
+  while True:
+    cnt = int(input("what's n? "))
+    if cnt < 0:
+        continue
+    else:
+        break
+  
+  for i in range(cnt):
+      print("Meow")
+
+  ------------- better
+  while True:
+    cnt = int( input("What's n?") )
+    if cnt > 0:
+        break
+  for _ in range(cnt):
+      print("Meow")
+
+  ------------- hardcoded with function
+  def main():
+    meow(4)
+
+  def meow(times):
+    for _ in range(times):
+      print("Meow")
+  main()
+  ------------- with function
+  def main():
+    cnt = get_num()
+    meow(cnt)
+  def get_num():
+      while True:
+          n = int(input("what's n?"))
+          if n > 0:
+              return n
+  def meow(times):
+      for _ in range(times):
+          print("Meow")
+  main()
+
+  ------------- with function [scope of n is within the function not the loop only]
+  def main():
+    cnt = get_num()
+    meow(cnt)
+  def get_num():
+      while True:
+          n = int(input("what's n?"))
+          if n > 0:
+            break;
+      return n
+  def meow(times):
+      for _ in range(times):
+          print("Meow")
+  main()
