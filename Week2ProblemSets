@@ -58,3 +58,39 @@ plates.py
   
   
   main()
+
+nutrition.py
+  ---------------
+  def main():
+    item_name = input("Item").lower()
+    print("Calories:",get_calories(item_name))
+
+  def get_calories(item):
+      match item:
+          case "apple":
+              return 130
+          case "avocado" | "cantaloupe" | "honeydew melon" | "strawberries" | "tangerine":
+              return 50
+          case "banana":
+              return 110
+          case "grapefruit" | "nectarine" | "peach":
+              return 60
+          case "grapes" | "kiwifruit":
+              return 90
+          case "lemon":
+              return 15
+          case "lime":
+              return 20
+          case "orange":
+              return 80
+          case "pear" | "sweet cherries":
+              return 100
+          case "plums":
+              return 70
+          case "watermelon":
+              return 80
+          case _:
+              exit()
+  
+  main()
+
