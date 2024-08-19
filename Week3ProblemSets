@@ -1,0 +1,19 @@
+fuel.py
+  -------------
+  def main():
+    fuel = get_fuel()
+    print(fuel)
+  def get_fuel():
+      while True:
+          try:
+              x, y = input("Fraction: ").split("/")
+              x, y = int(x) ,int(y)
+              if x <= y:
+                  fuel = round((x / y) * 100)
+                  if fuel <= 1  or fuel >=99:
+                      return "F" if fuel >= 99 else "E"
+                  else:
+                      return str(fuel) + "%"
+          except (ZeroDivisionError, ValueError):
+              pass
+  main()
