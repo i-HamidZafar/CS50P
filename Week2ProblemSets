@@ -32,3 +32,29 @@ twttr.py
               res += user_input[i]
   print("Output:", res)
 
+plates.py
+  ---------------
+  def main():
+    plate = input("Plate: ")
+    if is_valid(plate):
+        print("Valid")
+    else:
+        print("Invalid")
+
+  def is_valid(s):
+      if 2 <= len(s) <= 6:
+          if s.isalpha():
+                  return True
+          elif s[:2].isalpha() == False or s.isalnum() == False:
+                  return False
+          else:
+              for i in range(-2, -len(s), -1):
+                   if s[i].isdigit() == False:
+                      if s[i + 1] == '0' or s[0: i + 1].isalpha() == False:
+                        return False
+                      else:
+                        return True
+      return False
+  
+  
+  main()
