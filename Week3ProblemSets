@@ -41,3 +41,26 @@ taqueria.py
               pass
   
   main()
+
+grocery.py
+  --------------
+  def main():
+    get_grocery_list()
+
+  def get_grocery_list():
+      grocery_list = {}
+      while True:
+          try:
+              item = input().upper()
+          except EOFError:
+              print()
+              display_list(grocery_list)
+              return
+          else:
+              grocery_list[item] = grocery_list.setdefault(item, 0) + 1
+  def display_list(items):
+      keys = sorted(items.keys())
+      for key in keys:
+          print(items[key], key)
+  
+  main()
