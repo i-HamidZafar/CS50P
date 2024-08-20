@@ -1,4 +1,4 @@
-1- indoor.py:
+# 1- indoor.py:
   def main():
     prompt()
 
@@ -8,7 +8,7 @@
   
   main()
 
-2- playback.py
+# 2- playback.py
   def main():
     slow_speed()
 
@@ -18,7 +18,7 @@
   
   main()
   
-3- faces.py 
+# 3- faces.py 
   def main():
     user_input = input()
     user_input = convert(user_input)
@@ -30,7 +30,7 @@
   
   main()
 
-4- einstein.py
+# 4- einstein.py
   def main():
     mass = int(input("m: "))
     e = cal_e(mass)
@@ -41,7 +41,7 @@
   
   main()
 
-5- tip.py
+# 5- tip.py
   def main():
     user_input = input()
     user_input = convert(user_input)
