@@ -1,7 +1,7 @@
-CONDITIONALS
+# CONDITIONALS
 
-compare.py
-  --------------
+# compare.py
+#   --------------
   #not well designed [repitive]
   x = int(input("What's x? "))
   y = int(input("What's y? "))
@@ -13,7 +13,7 @@ compare.py
   if x == y:
       print("x is equal to y")
 
-  --------------with if elif 
+  # --------------with if elif 
   x = int(input("What's x? "))
   y = int(input("What's y? "))
   
@@ -24,7 +24,7 @@ compare.py
   elif x == y:
       print("x is equal to y")
 
-  --------------with if elif else
+  # --------------with if elif else
   x = int(input("What's x? "))
   y = int(input("What's y? "))
   
@@ -35,7 +35,7 @@ compare.py
   else:
       print("x is equal to y")
 
- --------------equal or not [bad]
+ # --------------equal or not [bad]
   x = int(input("What's x? "))
   y = int(input("What's y? "))
   
@@ -44,7 +44,7 @@ compare.py
   else: 
       print("x is equal to y")
 
-  --------------equal or not 
+  # --------------equal or not 
   x = int(input("What's x? "))
   y = int(input("What's y? "))
   
@@ -53,8 +53,8 @@ compare.py
   else: 
       print("x is equal to y")
 
-Grade.py
-  --------------
+# Grade.py
+#   --------------
   score = int ( input("Score? ") )
 
   if score >= 90 and score <= 100:
@@ -68,7 +68,7 @@ Grade.py
   else:
       print("Grade: F")
 
-  -------------- Ranging
+  # -------------- Ranging
   score = int ( input("Score? ") )
 
   if 90<= score <= 100:
@@ -82,7 +82,7 @@ Grade.py
   else:
     print("Grade: F")
 
-  -------------- asking less questions
+  # -------------- asking less questions
   score = int ( input("Score? ") )
 
   if score >= 90:
@@ -96,8 +96,8 @@ Grade.py
   else:
     print("Grade: F")
 
-parity.py
-  --------------
+# parity.py
+#   --------------
   num = int( input ("Num: ") )
   
   if num % 2 == 0:
@@ -105,7 +105,7 @@ parity.py
   else:
       print("Odd")
 
-  -------------- Creating function
+  # -------------- Creating function
   def main():
     num = int( input("Num: ") )
 
@@ -121,7 +121,7 @@ parity.py
           return False
   main()
 
-  ---------------  Pythonic way to do it with functions  
+  # ---------------  Pythonic way to do it with functions  
   def main():
     num = int( input("Num: ") )
 
@@ -134,7 +134,7 @@ parity.py
       return True if num % 2 == 0 else False
   main()
 
-  ---------------  most elegent 
+  # ---------------  most elegent 
   def main():
     num = int( input("Num: ") )
 
@@ -147,8 +147,8 @@ parity.py
       return num % 2 == 0
   main()
 
-house.py
-  -------------- nayy
+# house.py
+#   -------------- nayy
   name = input("What's your name? ")
 
   if name == "Harry" or name == "Ron" or name == "Hermione":
@@ -162,7 +162,7 @@ house.py
   else:
       print("Who?")
 
-  -------------- better
+  # -------------- better
   name = input("What's your name? ")
 
   if name == "Harry" or name == "Ron" or name == "Hermione":
@@ -172,7 +172,7 @@ house.py
   else:
       print("Who?")
 
-  -------------- using case [match]
+  # -------------- using case [match]
 
   name = input("What's your name? ")
 
@@ -186,23 +186,7 @@ house.py
       case "Draco":
           print("Slytherin")
 
-  -------------- using case [match] handling other names
-
-  name = input("What's your name? ")
-
-  match name:
-      case "Harry":
-          print("Gryffindor")
-      case "Ron":
-          print("Gryffindor")
-      case "Hermione":
-          print("Gryffindor")
-      case "Draco":
-          print("Slytherin")
-      case _:
-          print("Who?")
-
--------------- using match statement handling other names
+  # -------------- using case [match] handling other names
 
   name = input("What's your name? ")
 
@@ -218,7 +202,23 @@ house.py
       case _:
           print("Who?")
 
-  ------------- more readable
+# -------------- using match statement handling other names
+
+  name = input("What's your name? ")
+
+  match name:
+      case "Harry":
+          print("Gryffindor")
+      case "Ron":
+          print("Gryffindor")
+      case "Hermione":
+          print("Gryffindor")
+      case "Draco":
+          print("Slytherin")
+      case _:
+          print("Who?")
+
+  # ------------- more readable
   
   name = input("What's your name? ")
 
