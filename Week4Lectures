@@ -72,4 +72,73 @@ say.py
   if len(sys.argv) == 2:
       cowsay.trex("hello," + sys.argv[1])
 
+itunes.py
+  APIs & JSON
+  ----------- REQUESTS library: get a response from an API
+  import requests
+  
+  import sys
+  
+  if len(sys.argv) != 2:
+      sys.exit()
+  
+  response = requests.get("https://itunes.apple.com/search?entity=song&limit=1&term=" + sys.argv[1])
+  
+  print(response.json())
+
+  ----------- Lazily printing out the content of the response using dumps()  
+  import requests
+  import json
+  import sys
+  
+  if len(sys.argv) != 2:
+      sys.exit()
+  
+  response = requests.get("https://itunes.apple.com/search?entity=song&limit=1&term=" + sys.argv[1])
+  print(json.dumps(response.json(), indent = 7))
+
+WHY shouldn't call main() like this:
+sayings.py
+  def main():
+        hello("world")
+        good_bye("world")
+    
+    def hello(name):
+        print(f"hello, {name}")
+    
+    def good_bye(name):
+        print(f"goodbye, {name}")
+    
+  main()
+-----------------------------
+say.py
+  import sys
+  from sayings import hello
+  
+  if len(sys.argv) == 2:
+      hello(sys.argv[1])
+-----------------------------
+
+use main() like this:
+
+sayings.py
+  def main():
+      hello("world")
+      bye("world")
+    
+  def hello(name):
+      print(f"hello, {name}")
+  
+  def bye(name):
+      print(f"goodbye, {name}")
+  if __name__ == "__main__":
+      main()
+-----------------------------
+say.py
+  import sys
+  from sayings import bye
+  
+  if len(sys.argv) == 2:
+      bye(sys.argv[1])
+-----------------------------
 
