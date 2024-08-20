@@ -64,3 +64,48 @@ grocery.py
           print(items[key], key)
   
   main()
+
+outdated.py
+  ---------------
+  def main():
+    get_date()
+
+  def get_date():
+      months_list =[
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+      ]
+      while True:
+          date = input("Date: ")
+          month, day, year = date.replace("/", " ").replace(",", " ").split()
+          if month.isalpha() and month in months_list and date.count(',') == 1:
+              try:
+                  day , year = int(day) , int(year)
+                  if 31 >= day > 0:
+                      print_date(year, months_list.index(month) + 1, day)
+                      break
+              except ValueError:
+                  pass
+          else:
+              try:
+                  month ,day , year = int(month), int(day) , int(year)
+                  if 0 < month < 13 and 31 >= day > 0:
+                      print_date(year, month, day)
+                      break
+              except ValueError:
+                  pass
+  def print_date(year, month, day):
+      print(f"{year}-{month:02}-{day:02}")
+  
+  main()
+
