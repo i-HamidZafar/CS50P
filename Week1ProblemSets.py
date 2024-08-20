@@ -1,5 +1,5 @@
-deep.py
-  ----------------
+# deep.py
+#   ----------------
   def main():
     ans = input("What's the answer to life, the universe, and everything? ").lower().strip()
 
@@ -11,8 +11,8 @@ deep.py
   
   main()
 
-bank.py
-  ----------------
+# bank.py
+#   ----------------
   def main():
     greeting = input("Greeting: ").strip().lower()
   
@@ -24,8 +24,8 @@ bank.py
         print("$100")
   main()
   
- extensions.py
-  ----------------
+ # extensions.py
+ #  ----------------
   def main():
     file_name = input("File name: ").strip().lower()
     extension = file_name.split('.')[-1]
@@ -48,8 +48,8 @@ bank.py
   
   main()
 
-interpreter.py
-  ----------------
+# interpreter.py
+#   ----------------
   def main():
     exp = input("Expression: ").split()
     x , op , z = int(exp[0]) , exp[1] , int(exp[2])
@@ -66,8 +66,8 @@ interpreter.py
             print("Byee.....")
   main()
 
-meal.py
-  ----------------
+# meal.py
+#   ----------------
   def main():
     time = input("What time is it? ")
     hours , min = time.split(":")
@@ -95,4 +95,4 @@ meal.py
   
   if __name__ == "__main__":
       main()
-  ----------------
+  # ----------------
