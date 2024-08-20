@@ -1,1 +1,75 @@
+Libraries
+
+generate.py
+
+  random module
+  --------------import
+  import random
+  
+  coin = random.choice(["heads", "tails"])
+  print(coin)
+
+
+  ------------- from x import y
+  from random import choice
+  
+  coin = choice(["heads", "tails"])
+  print(coin)
+
+  ------------ randint()
+  import random
+  
+  number = random.randint(1,10)
+  print(number)
+
+
+  ----------- shuffle(x)
+  import random
+  
+  cards = ["jack", "queen", "king"]
+  random.shuffle(cards)
+  for card in cards:
+      print(card)
+
+average.py
+  statistics
+  ----------- mean
+  import statistics
+  print(statistics.mean([100, 90]))
+
+name.py
+  sys
+  -----------  sys.argv[CL Arguments] [argument vector]
+  import sys
+  try: 
+      print("hello, my name is", sys.argv[1])
+  except IndexError:
+      print("Too few Arguments")
+  ---------- avoid exceptions
+  import sys
+  
+  if len(sys.argv) < 2:
+      print("Too few args")
+  elif len(sys.argv) > 2:
+      print("Too many args")
+  else:
+      print("hello, my name is", sys.argv[1])
+
+  ----------- multiple args
+  import sys
+  
+  if len(sys.argv) < 2:
+      sys.exit(print("Too few args"))
+  for arg in sys.argv[1:]:
+      print("hello, my name is", arg)
+
+say.py
+  cowsay package
+  -----------
+  import sys
+  import cowsay
+  
+  if len(sys.argv) == 2:
+      cowsay.trex("hello," + sys.argv[1])
+
 
