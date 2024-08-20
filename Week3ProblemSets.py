@@ -1,5 +1,5 @@
-fuel.py
-  -------------
+# fuel.py
+#   -------------
   def main():
     fuel = get_fuel()
     print(fuel)
@@ -18,8 +18,8 @@ fuel.py
               pass
   main()
 
-taqueria.py
-  ---------------
+# taqueria.py
+#   ---------------
   def main():
       menu = {"Baja Taco": 4.25, "Burrito": 7.50, "Bowl": 8.50,
               "Nachos": 11.00, "Quesadilla": 8.50, "Super Burrito": 8.50,
@@ -42,8 +42,8 @@ taqueria.py
   
   main()
 
-grocery.py
-  --------------
+# grocery.py
+#   --------------
   def main():
     get_grocery_list()
 
@@ -65,47 +65,40 @@ grocery.py
   
   main()
 
-outdated.py
-  ---------------
+# outdated.py
+#   ---------------
   def main():
     get_date()
 
-  def get_date():
-      months_list =[
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-      ]
-      while True:
-          date = input("Date: ")
-          month, day, year = date.replace("/", " ").replace(",", " ").split()
-          if month.isalpha() and month in months_list and date.count(',') == 1:
-              try:
-                  day , year = int(day) , int(year)
-                  if 31 >= day > 0:
-                      print_date(year, months_list.index(month) + 1, day)
-                      break
-              except ValueError:
-                  pass
-          else:
-              try:
-                  month ,day , year = int(month), int(day) , int(year)
-                  if 0 < month < 13 and 31 >= day > 0:
-                      print_date(year, month, day)
-                      break
-              except ValueError:
-                  pass
-  def print_date(year, month, day):
-      print(f"{year}-{month:02}-{day:02}")
-  
-  main()
+def print_date(year, month, day):
+    print(f"{year}-{month:02}-{day:02}")
+def split_date(date, delimiter):
+    month, day, year = date.replace(delimiter," ").split()
+    return month , day , year
+def validate_date(month, day, year):
+    return 13 > month > 0 and 31 >= day > 0 and year > 0
+
+def get_date():
+    months_list =[    "January", "February", "March", "April", "May", "June", "July",
+                        "August", "September", "October", "November", "December"        ]
+    while True:
+        input_date = input("Date: ")
+        if '/' in input_date:
+            month, day, year = split_date(input_date, '/')
+            try:
+                if validate_date(int(month), int(day), int(year)):
+                    print_date(year, int(month), int(day))
+                    break
+            except(ValueError, IndexError):
+                pass
+        elif ',' in input_date:
+            month, day, year = split_date(input_date, ',')
+            try:
+                if validate_date(months_list.index(month) + 1, int(day), int(year)):
+                    print_date(year, months_list.index(month) + 1, int(day))
+                    break
+            except(ValueError, IndexError):
+                pass
+
+main()
 
