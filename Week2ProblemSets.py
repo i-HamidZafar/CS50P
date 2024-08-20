@@ -1,5 +1,5 @@
-camel.py
-  ----------------
+# camel.py
+#   ----------------
   user_input = input("camelCase: ")
 
   for i in range(len(user_input)):
@@ -7,8 +7,8 @@ camel.py
           user_input = user_input[:i] + "_" + user_input[i].lower() + user_input[i + 1:]
   print("snake_case:", user_input)
 
-coke.py
-  ----------------
+# coke.py
+#   ----------------
   amount = 50
   change = 0
   while amount > 0:
@@ -22,8 +22,8 @@ coke.py
   
   print("Change Owed:", change)
 
-twttr.py
-  ----------------
+# twttr.py
+#   ----------------
   user_input = input("Input: ").strip()
   res =""
   vowels =["a","e" ,"i" ,"o" ,"u", "A" ,"E" ,"I" ,"O", "U"]
@@ -32,8 +32,8 @@ twttr.py
               res += user_input[i]
   print("Output:", res)
 
-plates.py
-  ---------------
+# plates.py
+#   ---------------
   def main():
     plate = input("Plate: ")
     if is_valid(plate):
@@ -59,8 +59,8 @@ plates.py
   
   main()
 
-nutrition.py
-  ---------------
+# nutrition.py
+#   ---------------
   def main():
     item_name = input("Item").lower()
     print("Calories:",get_calories(item_name))
