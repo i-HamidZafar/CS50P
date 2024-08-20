@@ -1,26 +1,26 @@
-hello.py
-  ---------------//Syntax Error [unterminated string literal] 
+# hello.py
+#   ---------------//Syntax Error [unterminated string literal] 
   print("Hello, world)
 
-number.py
-  ---------------//prone to ValueError
+# number.py
+#   ---------------//prone to ValueError
   x = int(input("What's x?"))
   print(f"x is {x}")
 
-  --------------- Handles ValueError
+  # --------------- Handles ValueError
   try:
     x = int(input("What's x?"))
     print(f"x is {x}")
   except ValueError:
       print("x is not an integer")
-  --------------- Better but Prone to NameError [x not define in case of catch of ValueError]
+  # --------------- Better but Prone to NameError [x not define in case of catch of ValueError]
   try:
     x = int(input("What's x?"))
   except ValueError:
       print("x is not an integer")
 
   print(f"x is {x}")
-  --------------- else block in try except (executed when the except block is not executed.)
+  # --------------- else block in try except (executed when the except block is not executed.)
   try:
     x = int(input("What's x?"))
   except ValueError:
@@ -28,7 +28,7 @@ number.py
   else:
       print(f"x is {x}")
 
-  --------------- input validation
+  # --------------- input validation
   while True:
     try:
         x = int(input("What's x? "))
@@ -39,7 +39,7 @@ number.py
       
   print(f"x is {x}")
 
-  --------------- without else block
+  # --------------- without else block
   while True:
     try:
         x = int(input("What's x? "))
@@ -50,7 +50,7 @@ number.py
   print(f"x is {x}")
 
 
-  --------------- abstracting with the function
+  # --------------- abstracting with the function
   def main():
     x = get_int()
     print(f"x is {x}")
@@ -66,7 +66,7 @@ number.py
   
   main()
 
-  ---------------- shortened
+  # ---------------- shortened
   def main():
     x = get_int()
     print(f"x is {x}")
@@ -80,7 +80,7 @@ number.py
   
   main()
 
-  --------------- catching the error but passing to handle it further
+  # --------------- catching the error but passing to handle it further
   def main():
     x = get_int()
     print(f"x is {x}")
@@ -94,7 +94,7 @@ number.py
   
   main()
 
-  -------------- more compact
+  # -------------- more compact
 
   def main():
     x = get_int("What's x? ")
