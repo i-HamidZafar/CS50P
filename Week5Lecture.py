@@ -111,4 +111,38 @@ def test_negative():
 def test_zero():
      assert square(0) == 0
 
+# hello.py
+  # ------------------------can't be test as the print has side effect rather than return a value
+def main():
+    name = input("What's your name? ")
+    hello(name)
+def hello(to = "world"):
+    print(f"hello, {to}")
+
+if __name__ == "__main__":
+    main()
+# -------------------- testable
+def main():
+  name = input("What's your name? ")
+  print(hello(name))
+def hello(to = "world"):
+  return f"hello,{to}"
+
+if "__name__" == "__main__"
+#test_hello.py
+from hello import hello
+
+def test_default():
+    assert hello() == "hello, world"
+def test_arguments():
+    assert hello("David") == "hello, David"
+    assert hello("Ron") == "hello, Ron"
   
+# test/test_hello.py {testing a package} python -m pytest package_name
+  # create __init__.py in test package before testing so it treats the folder as package
+from hello import hello
+def test_default():
+    assert hello() == "hello, world"
+
+def test_args():
+    assert hello("David") == "hello, David"
