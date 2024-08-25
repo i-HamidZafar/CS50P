@@ -192,4 +192,18 @@ _________________________________________
         writer.writerow({"name": name, "home": home})
   if __name__ == "__main__":
     main()
-
+__________________________________
+# pillow library
+  # costumes.py 
+  import sys
+  from PIL import Image
+  
+  def main():
+      images = []
+      
+      for arg in sys.argv[1:]:
+          image =Image.open(arg)
+          images.append(image)
+      images[0].save(
+          "try.gif", save_all=True, append=[images[1]], duration =200, loop = 0
+      )
