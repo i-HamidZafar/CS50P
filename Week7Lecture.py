@@ -160,4 +160,50 @@
       print("Valid")
   else:
       print("Invalid")
-    
+
+
+#format.py
+  #not suitable for last name, first name
+  name = input("What's your name? ").strip()
+  
+  print(f"hello, {name}")
+
+  #improving but fragile
+  name = input("What's your name? ").strip()
+
+  if "," in name:
+      last, first = name.split(", ")
+      name = f"{first} {last}"
+  print(f"hello, {name}")
+
+  #using re
+  import re
+  name = input("What's your name? ").strip()
+  matches = re.search(r"^(.+), (.+)$", name)
+  if matches:
+      last, first = matches.groups()
+      name = f"{first} {last}"
+  print(f"hello, {name}")
+
+  #more tigthened up (using the groupes captured from the match)
+  import re
+  name = input("What's your name? ").strip()
+  matches = re.search(r"^(.+), (.+)$", name)
+  if matches:
+      name = matches.group(2) + " " + matches.group(1)
+  print(f"hello, {name}")
+
+  #more better way to go about space
+  import re
+  name = input("What's your name? ").strip()
+  matches = re.search(r"^(.+), *(.+)$", name)
+  if matches:
+      name = matches.group(2) + " " + matches.group(1)
+  print(f"hello, {name}")
+
+  #using the walrus Operator (allows you to assign a value and ask a boolean question at the same time)
+  import re
+  name = input("What's your name? ")
+  if maches := re.search(r"(.+), *(.+)", name):
+      name = matches.group(2) + " " + matches.group(1)
+  print(f"hello, {name}")
