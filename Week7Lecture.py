@@ -207,3 +207,58 @@
   if maches := re.search(r"(.+), *(.+)", name):
       name = matches.group(2) + " " + matches.group(1)
   print(f"hello, {name}")
+
+
+#twitter.py
+  #extracting information from string
+  #just starting off
+  url = input("URL: ").strip()
+  print(url)
+
+  #extracting username {fragile}
+  url = input("URL: ").strip()
+  username = url.replace("https://twitter.com/", "")
+  print(f"Username: {username}")
+
+  #still not any better but lies invalid url alone rather than replacing
+  url = input("URL: ").strip()
+  username = url.removeprefix("https://twitter.com/")
+  print(f"Username: {username}")
+
+#using re [using re.search, not from lecture]
+  import re 
+  
+  url = input("URL: ")
+  username = re.search(r"^(?:https?://)?(?:www\.)?twitter\.com/(\w+).*$", url).group(1) 
+  if username:
+      print (username)
+
+  #using re.sub() (subtitute)
+  #prototype: re.sub(pattern, repl, string, count = 0, flags = 0)
+
+  #using re.sub [fragile + buggy] 
+  import re 
+  
+  url = input("URL: ")
+  username = re.sub(r"https://twitter.com/", "", url)
+  print(f"Username: {username}")
+
+  #using re.sub, incremental refinement [re.sub is useful for cleaning up data]
+  import re 
+  
+  url = input("URL: ")
+  username = re.sub(r"^(https://)?(www\.)?twitter\.com/", "", url)
+  print(f"Username: {username}")
+  
+  #using re.search
+  import re 
+  
+  url = input("URL: ")
+  if matches := re.search(r"https?://(www\.)?twitter\.com/(.+)$", url, re.IGNORECASE):
+      print(f"Username: {matches.group(2)}")
+
+  #a little refining using non capturing groups
+  import re   
+  url = input("URL: ")
+  if matches := re.search(r"https?://(?:www\.)?twitter\.com/(.+)$", url, re.IGNORECASE):
+      print(f"Username: {matches.group(1)}")
