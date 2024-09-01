@@ -68,7 +68,7 @@
       student = get_student()
       if student[0] == "Padma":
           student[1] = "Ravenclaw"
-      print(f"{student[0]} from {student[1]}")
+     print(f"{student[0]} from {student[1]}")
   
   def get_student():
       name = input("Name: ")
@@ -320,3 +320,182 @@
   if __name__ == "__main__":
       main()
 
+#hat.py
+#cinstance methods
+   class Hat:
+       def sort(self, name):
+           print(name, "is in", "some house")
+   
+   hat = Hat()
+   hat.sort("Harry")
+   ________________________
+
+   import random
+   class Hat:
+       def __init__(self):
+           self.houses= ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+   
+       def sort(self, name):
+           print(name, "is in", random.choice(self.houses))
+   
+   hat = Hat()
+   hat.sort("Harry")
+
+#class methods [@classmethod decorator]
+   import random
+   class Hat:
+       houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+       @classmethod
+       def sort(cls, name):
+           print(name, "is in", random.choice(cls.houses))
+   
+   Hat.sort("Harry")
+
+#student.py
+   #better design for getting a student
+   class Student:
+       def __init__(self, name, house):         
+           self.name = name #assignment goes through the setter
+           self.house = house
+       @classmethod 
+       def get(cls):
+           name = input("Name: ")
+           house = input("House: ")
+           return cls(name,house)
+       def __str__(self):
+           return f"{self.name} from {self.house}"
+   
+   def main():
+       student = Student.get()
+       print(student)
+   
+   if __name__ == "__main__":
+       main()
+
+#wizard.py
+   #redundant code
+   class Wizard:
+       def __init__(self, name):
+           if not name:
+               raise ValueError("Missing name")
+           self.name = name
+       
+   
+   class Student:
+       def __init__(self, name, house) :
+           if not name:
+               raise ValueError("Missing name")
+           self.name = name
+           self.house = house
+           
+   
+       ...
+       
+   class Professor:
+       def __init__(self, name, subject) :
+           if not name:
+               raise ValueError("Missing name")
+           self.name = name
+           self.subject = subject
+   
+       ...
+   
+   #introducing inheritance
+   class Wizard:
+       def __init__(self, name):
+           if not name:
+               raise ValueError("Missing name")
+           self.name = name
+       
+   
+   class Student(Wizard):
+       def __init__(self, name, house) :
+           super().__init__(name)
+           self.name = name
+           self.house = house
+           
+   
+       ...
+       
+   class Professor(Wizard):
+       def __init__(self, name, subject) :
+           super().__init__(name)
+           self.name = name
+           self.subject = subject
+   
+       ...
+   
+   wizard = Wizard("Albus")
+   student = Student("Harry", "Gryffindor")
+   professor = Professor("Snape", "Potions, the Dark Arts, and Charms") 
+
+
+#vault.py
+   #working code
+   class Vault:
+       def __init__(self, galleons = 0, sickles = 0, knuts = 0):
+           self.galleons = galleons
+           self.sickles = sickles
+           self.knuts = knuts
+       
+   potter = Vault(100, 50, 25)
+   print(potter)
+
+   #better
+   class Vault:
+       def __init__(self, galleons = 0, sickles = 0, knuts = 0):
+           self.galleons = galleons
+           self.sickles = sickles
+           self.knuts = knuts
+       def __str__(self):
+           return f"Galleons: {self.galleons}, Sickles: {self.sickles}, Knuts: {self.knuts}"
+       
+   potter = Vault(100, 50, 25)
+   print(potter)
+
+   #additioning galleons, sickles and knuts
+   class Vault:
+       def __init__(self, galleons = 0, sickles = 0, knuts = 0):
+           self.galleons = galleons
+           self.sickles = sickles
+           self.knuts = knuts
+       def __str__(self):
+           return f"Galleons: {self.galleons}, Sickles: {self.sickles}, Knuts: {self.knuts}"
+       
+   potter = Vault(100, 50, 25)
+   print(potter)
+   
+   weasly = Vault(25, 50, 100)
+   print(weasly)
+   
+   galleons = potter.galleons + weasly.galleons
+   sickles = potter.sickles + weasly.sickles
+   knuts = potter.knuts + weasly.knuts
+   
+   total = Vault(galleons, sickles, knuts)
+   print(total)
+
+
+#operator overloading
+   class Vault:
+    def __init__(self, galleons = 0, sickles = 0, knuts = 0):
+        self.galleons = galleons
+        self.sickles = sickles
+        self.knuts = knuts
+    def __str__(self):
+        return f"Galleons: {self.galleons}, Sickles: {self.sickles}, Knuts: {self.knuts}"
+    
+    def __add__(self, other):
+        galleons = self.galleons + other.galleons
+        sickles = self.sickles + other.sickles
+        knuts = self.knuts + other.knuts
+        return Vault(galleons, sickles, knuts)
+    
+   potter = Vault(100, 50, 25)
+   print(potter)
+   
+   weasly = Vault(25, 50, 100)
+   print(weasly)
+   
+   total = potter + weasly
+   print(total)
