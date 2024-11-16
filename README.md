@@ -1,5 +1,5 @@
 #### CS50P
-###Content from CS50P 
+##Content from CS50P 
 
 1. Functions, Variables
 2. Conditionals
